@@ -31,14 +31,29 @@ void PrintArray(string[] arrayOfStrings)
     Console.Write("]");
 }
 
-string[] CheckNumOfSymbols(string[] arrayOfStrings)
+int CountStringsEquals3Symbols(string[] arrayOfStrings)
 {
-    string[] new_array = new string[arrayOfStrings.Length];
-    for (int i = 0; i < arrayOfStrings.Length; i ++)
+    int counter = 0;
+    for (int i = 0; i < arrayOfStrings.Length; i++)
     {
         if (arrayOfStrings[i].Length <= 3)
         {
-            new_array[i] = arrayOfStrings[i];
+            counter ++;
+        }
+    }
+    return counter;
+}
+
+string[] CheckNumOfSymbols(string[] arr_new)
+{
+    string[] new_array = new string[CountStringsEquals3Symbols(arr_new)];
+    int j = 0;
+    for (int i = 0; i < arr_new.Length; i ++)
+    {
+        if (arr_new[i].Length <= 3)
+        {
+            new_array[j] = arr_new[i];
+            j ++;
         }
     }
     return new_array;
